@@ -20,11 +20,15 @@ public class Employee {
     private String birthDate;
     @JsonProperty("date_entry_company")
     private String dateEntryCompany;
+    @JsonProperty("company_linking_time")
+    private String companyLinkingTime;
+    @JsonProperty("age")
+    private String age;
 
     public Employee() {
     }
 
-    public Employee(String fullName, String lastName, String documentNumber, String documentType, Double salary, String role, String birthDate, String dateEntryCompany) {
+    public Employee(String fullName, String lastName, String documentNumber, String documentType, Double salary, String role, String birthDate, String dateEntryCompany, String companyLinkingTime, String age) {
         this.fullName = fullName;
         this.lastName = lastName;
         this.documentNumber = documentNumber;
@@ -33,6 +37,16 @@ public class Employee {
         this.role = role;
         this.birthDate = birthDate;
         this.dateEntryCompany = dateEntryCompany;
+        this.companyLinkingTime = companyLinkingTime;
+        this.age = age;
+    }
+
+    public String getAge() {
+        return age;
+    }
+
+    public void setAge(String age) {
+        this.age = age;
     }
 
     public String getFullName() {
@@ -99,17 +113,11 @@ public class Employee {
         this.dateEntryCompany = dateEntryCompany;
     }
 
-    @Override
-    public String toString() {
-        return "Employee{" +
-                "fullName='" + fullName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", documentNumber='" + documentNumber + '\'' +
-                ", documentType='" + documentType + '\'' +
-                ", salary=" + salary +
-                ", role='" + role + '\'' +
-                ", birthDate=" + birthDate +
-                ", dateEntryCompany=" + dateEntryCompany +
-                '}';
+    public String getCompanyLinkingTime() {
+        return companyLinkingTime;
+    }
+
+    public void setCompanyLinkingTime(String companyLinkingTime) {
+        this.companyLinkingTime = companyLinkingTime;
     }
 }

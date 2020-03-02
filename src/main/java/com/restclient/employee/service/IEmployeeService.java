@@ -17,4 +17,6 @@ public interface IEmployeeService {
 
     public Employee loadEmployee(EmployeeResponse employeeResponse) ;
 
+    public Boolean validateAges(Date age) ;
+
 }
