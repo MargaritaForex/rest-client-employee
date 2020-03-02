@@ -11,9 +11,9 @@ import javax.xml.datatype.XMLGregorianCalendar;
 
 /**
  * <p>Clase Java para Employee complex type.
- * 
+ *
  * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
- * 
+ *
  * <pre>
  * &lt;complexType name="Employee">
  *   &lt;complexContent>
@@ -32,19 +32,19 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "Employee", propOrder = {
-    "fullName",
-    "lastName",
-    "documentType",
-    "documentNumber",
-    "role",
-    "birthDate",
-    "dateEntryCompany",
-    "salary"
+        "fullName",
+        "lastName",
+        "documentType",
+        "documentNumber",
+        "role",
+        "birthDate",
+        "dateEntryCompany",
+        "salary"
 })
 public class Employee {
 
@@ -68,11 +68,11 @@ public class Employee {
 
     /**
      * Obtiene el valor de la propiedad fullName.
-     * 
+     *
      * @return
      *     possible object is
      *     {@link String }
-     *     
+     *
      */
     public String getFullName() {
         return fullName;
@@ -80,11 +80,11 @@ public class Employee {
 
     /**
      * Define el valor de la propiedad fullName.
-     * 
+     *
      * @param value
      *     allowed object is
      *     {@link String }
-     *     
+     *
      */
     public void setFullName(String value) {
         this.fullName = value;
@@ -92,11 +92,11 @@ public class Employee {
 
     /**
      * Obtiene el valor de la propiedad lastName.
-     * 
+     *
      * @return
      *     possible object is
      *     {@link String }
-     *     
+     *
      */
     public String getLastName() {
         return lastName;
@@ -104,11 +104,11 @@ public class Employee {
 
     /**
      * Define el valor de la propiedad lastName.
-     * 
+     *
      * @param value
      *     allowed object is
      *     {@link String }
-     *     
+     *
      */
     public void setLastName(String value) {
         this.lastName = value;
@@ -116,11 +116,11 @@ public class Employee {
 
     /**
      * Obtiene el valor de la propiedad documentType.
-     * 
+     *
      * @return
      *     possible object is
      *     {@link String }
-     *     
+     *
      */
     public String getDocumentType() {
         return documentType;
@@ -128,11 +128,11 @@ public class Employee {
 
     /**
      * Define el valor de la propiedad documentType.
-     * 
+     *
      * @param value
      *     allowed object is
      *     {@link String }
-     *     
+     *
      */
     public void setDocumentType(String value) {
         this.documentType = value;
@@ -140,11 +140,11 @@ public class Employee {
 
     /**
      * Obtiene el valor de la propiedad documentNumber.
-     * 
+     *
      * @return
      *     possible object is
      *     {@link String }
-     *     
+     *
      */
     public String getDocumentNumber() {
         return documentNumber;
@@ -152,11 +152,11 @@ public class Employee {
 
     /**
      * Define el valor de la propiedad documentNumber.
-     * 
+     *
      * @param value
      *     allowed object is
      *     {@link String }
-     *     
+     *
      */
     public void setDocumentNumber(String value) {
         this.documentNumber = value;
@@ -164,11 +164,11 @@ public class Employee {
 
     /**
      * Obtiene el valor de la propiedad role.
-     * 
+     *
      * @return
      *     possible object is
      *     {@link String }
-     *     
+     *
      */
     public String getRole() {
         return role;
@@ -176,11 +176,11 @@ public class Employee {
 
     /**
      * Define el valor de la propiedad role.
-     * 
+     *
      * @param value
      *     allowed object is
      *     {@link String }
-     *     
+     *
      */
     public void setRole(String value) {
         this.role = value;
@@ -188,11 +188,11 @@ public class Employee {
 
     /**
      * Obtiene el valor de la propiedad birthDate.
-     * 
+     *
      * @return
      *     possible object is
      *     {@link XMLGregorianCalendar }
-     *     
+     *
      */
     public XMLGregorianCalendar getBirthDate() {
         return birthDate;
@@ -200,11 +200,11 @@ public class Employee {
 
     /**
      * Define el valor de la propiedad birthDate.
-     * 
+     *
      * @param value
      *     allowed object is
      *     {@link XMLGregorianCalendar }
-     *     
+     *
      */
     public void setBirthDate(XMLGregorianCalendar value) {
         this.birthDate = value;
@@ -212,11 +212,11 @@ public class Employee {
 
     /**
      * Obtiene el valor de la propiedad dateEntryCompany.
-     * 
+     *
      * @return
      *     possible object is
      *     {@link XMLGregorianCalendar }
-     *     
+     *
      */
     public XMLGregorianCalendar getDateEntryCompany() {
         return dateEntryCompany;
@@ -224,11 +224,11 @@ public class Employee {
 
     /**
      * Define el valor de la propiedad dateEntryCompany.
-     * 
+     *
      * @param value
      *     allowed object is
      *     {@link XMLGregorianCalendar }
-     *     
+     *
      */
     public void setDateEntryCompany(XMLGregorianCalendar value) {
         this.dateEntryCompany = value;
@@ -236,7 +236,7 @@ public class Employee {
 
     /**
      * Obtiene el valor de la propiedad salary.
-     * 
+     *
      */
     public double getSalary() {
         return salary;
@@ -244,7 +244,7 @@ public class Employee {
 
     /**
      * Define el valor de la propiedad salary.
-     * 
+     *
      */
     public void setSalary(double value) {
         this.salary = value;
