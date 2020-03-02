@@ -12,8 +12,16 @@ import javax.xml.datatype.DatatypeFactory;
 import javax.xml.datatype.XMLGregorianCalendar;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.Month;
+import java.time.Period;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.concurrent.TimeUnit;
 
 @Service
 public class EmployeeService implements IEmployeeService {
@@ -75,7 +83,22 @@ public class EmployeeService implements IEmployeeService {
         emp.setSalary(employeeResponse.getEmployee().getSalary());
         emp.setBirthDate(toDate(employeeResponse.getEmployee().getBirthDate()));
         emp.setDateEntryCompany(toDate(employeeResponse.getEmployee().getDateEntryCompany()));
+        emp.setCompanyLinkingTime(calculateTimeCompany(employeeResponse.getEmployee().getDateEntryCompany()));
+        emp.setAge(CalculateAge(employeeResponse.getEmployee().getBirthDate()));
         return emp;
+    }
+
+    @Override
+    public Boolean validateAges(Date age) {
+        Boolean validade = false;
+        LocalDate localDate = age.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        LocalDate today = LocalDate.now();
+        Period ageValidate = Period.between(localDate, today);
+        int years = ageValidate.getYears();
+        if(years>17){
+            validade = true;
+        }
+        return validade;
     }
 
     public  String toDate(XMLGregorianCalendar calendar){
@@ -84,6 +107,32 @@ public class EmployeeService implements IEmployeeService {
         }
         DateFormat formatter = new SimpleDateFormat("MM/dd/yyyy hh:mm:ss a");
         return formatter.format(calendar.toGregorianCalendar().getTime());
-
     }
+
+    private String calculateTimeCompany(XMLGregorianCalendar calendar){
+        Date date = new Date();
+        Date date1 = calendar.toGregorianCalendar().getTime();
+        LocalDate localDate = date1.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        LocalDate today = LocalDate.now();
+        Period age = Period.between(localDate, today);
+        int years = age.getYears();
+        int months = age.getMonths();
+        int days = age.getDays();
+        String timeCompany = String.valueOf (years) + " años "+String.valueOf (months) +" meses "+String.valueOf (days) + " dias ";
+        return timeCompany;
+    }
+
+    private String CalculateAge(XMLGregorianCalendar age){
+        Date ageDate = age.toGregorianCalendar().getTime();
+        LocalDate birthDate = ageDate.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        LocalDate ahora = LocalDate.now();
+
+        Period periodo = Period.between(birthDate, ahora);
+
+        String timeCompany =  " tu edad es: "+String.valueOf (periodo.getYears()) + " años "+String.valueOf (periodo.getMonths()) +" meses "+String.valueOf (periodo.getDays()) + " dias ";
+        return timeCompany;
+    }
+
+
+
 }

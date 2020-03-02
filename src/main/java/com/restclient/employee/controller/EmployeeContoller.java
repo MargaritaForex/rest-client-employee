@@ -37,17 +37,23 @@ public class EmployeeContoller {
         ResponseEmployee responseEmployee = new ResponseEmployee();
         Employee employee = new Employee();
         logger.info("Start getDummyEmployee");
-        EmployeeResponse employeeResponse = service.consumeWebServiceEmployee(service.loadEmployeRequest
-                (fullName,lastName,documentType,documentNumber,salary,role,birthDate,dateEntryCompany));
-        if(employeeResponse.getEmployee()!=null) {
-            employee = service.loadEmployee(employeeResponse);
-            responseEmployee.setEmployee(employee);
-            responseEmployee.setStatusCode(200);
-            responseEmployee.setDescription("succesful transaction");
+        if(service.validateAges(birthDate)) {
+            EmployeeResponse employeeResponse = service.consumeWebServiceEmployee(service.loadEmployeRequest
+                    (fullName, lastName, documentType, documentNumber, salary, role, birthDate, dateEntryCompany));
+            if (employeeResponse.getEmployee() != null) {
+                employee = service.loadEmployee(employeeResponse);
+                responseEmployee.setEmployee(employee);
+                responseEmployee.setStatusCode(200);
+                responseEmployee.setDescription("succesful transaction");
+            } else {
+                responseEmployee.setEmployee(employee);
+                responseEmployee.setStatusCode(400);
+                responseEmployee.setDescription("empty fields please validate");
+            }
         }else{
             responseEmployee.setEmployee(employee);
-            responseEmployee.setStatusCode(400);
-            responseEmployee.setDescription("empty fields please validate");
+            responseEmployee.setStatusCode(503);
+            responseEmployee.setDescription("No permitido, eres menor de edad");
         }
         return responseEmployee;
     }
